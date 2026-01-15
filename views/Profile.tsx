@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
   return (
     <div className="flex-1 overflow-y-auto no-scrollbar pb-24 bg-background-light dark:bg-background-dark">
       {/* App Bar */}
-      <div className="sticky top-0 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 flex items-center justify-between">
+      <div className="sticky top-0 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b dark:border-slate-800">
         <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">My Profile</h2>
         <button onClick={() => navigate('/notification-prefs')} className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10">
           <span className="material-symbols-outlined">settings</span>
@@ -52,8 +52,8 @@ const Profile: React.FC = () => {
         ]} />
 
         <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-sm overflow-hidden border dark:border-slate-800">
-          <ProfileAction icon="badge" label="View ID Card" onClick={() => {}} />
-          <ProfileAction icon="lock_reset" label="Change Password" onClick={() => {}} border={false} />
+          <ProfileAction icon="badge" label="View ID Card" onClick={() => navigate('/id-card')} />
+          <ProfileAction icon="lock_reset" label="Change Password" onClick={() => navigate('/forgot-password')} border={false} />
         </div>
 
         <div className="pb-6">

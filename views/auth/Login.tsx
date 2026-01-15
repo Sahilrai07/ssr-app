@@ -49,7 +49,7 @@ const Login: React.FC = () => {
                 <button className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"><span className="material-symbols-outlined text-lg">visibility_off</span></button>
               </div>
               <div className="flex justify-end pt-1">
-                <button className="text-xs font-bold text-primary">Forgot Password?</button>
+                <button onClick={() => navigate('/forgot-password')} className="text-xs font-bold text-primary">Forgot Password?</button>
               </div>
             </div>
           </div>

@@ -1,20 +1,22 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Fees: React.FC = () => {
+  const navigate = useNavigate();
   const [view, setView] = useState<'current' | 'history'>('current');
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
-      <div className="p-4 flex items-center justify-between bg-white dark:bg-background-dark z-10">
-        <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+      <div className="p-4 flex items-center justify-between bg-white dark:bg-background-dark z-10 border-b dark:border-slate-800">
+        <button onClick={() => navigate('/dashboard')} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">Fees Overview</h2>
-        <button className="p-2 rounded-full text-slate-400"><span className="material-symbols-outlined">notifications</span></button>
+        <button onClick={() => navigate('/notification-prefs')} className="p-2 rounded-full text-slate-400"><span className="material-symbols-outlined">notifications</span></button>
       </div>
 
-      <div className="flex-1 overflow-y-auto no-scrollbar pb-24 px-4">
+      <div className="flex-1 overflow-y-auto no-scrollbar pb-24 px-4 pt-6">
         {/* Toggle */}
         <div className="bg-slate-100 dark:bg-surface-dark p-1 rounded-2xl flex mb-6">
           <button 
@@ -63,7 +65,12 @@ const Fees: React.FC = () => {
                     <p className="text-xs text-slate-400">Pending</p>
                   </div>
                 </div>
-                <button className="w-full py-3 bg-primary text-white font-bold rounded-xl shadow-md">Pay Now</button>
+                <button 
+                  onClick={() => navigate('/payment', { state: { amount: 12500, title: '2nd Installment Fee' } })}
+                  className="w-full py-3 bg-primary text-white font-bold rounded-xl shadow-md transition-transform active:scale-95"
+                >
+                  Pay Now
+                </button>
               </div>
             </section>
           </div>

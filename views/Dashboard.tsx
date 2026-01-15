@@ -70,10 +70,10 @@ const Dashboard: React.FC = () => {
         <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 px-1">Quick Access</h3>
         <div className="grid grid-cols-3 gap-3">
           <QuickAction icon="school" label="Results" color="blue" onClick={() => navigate('/results')} />
-          <QuickAction icon="description" label="Exam Forms" color="indigo" onClick={() => navigate('/results')} />
+          <QuickAction icon="description" label="Exam Forms" color="indigo" onClick={() => navigate('/exam-forms')} />
           <QuickAction icon="payments" label="Fee Payment" color="emerald" onClick={() => navigate('/fees')} />
-          <QuickAction icon="directions_bus" label="Bus Tracking" color="orange" onClick={() => {}} />
-          <QuickAction icon="campaign" label="Notices" color="pink" onClick={() => {}} />
+          <QuickAction icon="directions_bus" label="Bus Tracking" color="orange" onClick={() => navigate('/bus-tracking')} />
+          <QuickAction icon="campaign" label="Notices" color="pink" onClick={() => navigate('/notices')} />
           <QuickAction icon="headset_mic" label="Support" color="slate" onClick={() => navigate('/support')} />
         </div>
       </section>

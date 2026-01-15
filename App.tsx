@@ -7,12 +7,15 @@ import Login from './views/auth/Login';
 import Registration from './views/auth/Registration';
 import Profile from './views/Profile';
 import Results from './views/academics/Results';
+import ExamForms from './views/academics/ExamForms';
 import Fees from './views/finance/Fees';
 import Attendance from './views/academics/Attendance';
 import Events from './views/events/Events';
 import HelpSupport from './views/HelpSupport';
 import NotificationPrefs from './views/NotificationPrefs';
 import Onboarding from './views/Onboarding';
+import BusTracking from './views/transport/BusTracking';
+import Notices from './views/notices/Notices';
 
 const AppWrapper: React.FC = () => {
   const [theme, setTheme] = useState<AppTheme>(AppTheme.LIGHT);
@@ -45,11 +48,14 @@ const AppWrapper: React.FC = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/exam-forms" element={<ExamForms />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/fees" element={<Fees />} />
           <Route path="/events" element={<Events />} />
           <Route path="/support" element={<HelpSupport />} />
           <Route path="/notification-prefs" element={<NotificationPrefs />} />
+          <Route path="/bus-tracking" element={<BusTracking />} />
+          <Route path="/notices" element={<Notices />} />
         </Routes>
 
         {showNavbar && (

@@ -1,26 +1,31 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ASSETS } from '../../constants';
 
 const Results: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex-1 overflow-y-auto no-scrollbar pb-24">
       {/* Header */}
-      <div className="p-4 flex items-center justify-between sticky top-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md z-10">
-        <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+      <div className="p-4 flex items-center justify-between sticky top-0 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md z-10 border-b dark:border-slate-800">
+        <button onClick={() => navigate('/dashboard')} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
           <span className="material-symbols-outlined text-slate-900 dark:text-white">arrow_back</span>
         </button>
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">Academic Results</h2>
-        <div className="w-10"></div>
+        <button onClick={() => navigate('/syllabus')} className="p-2 rounded-full text-primary hover:bg-primary/10">
+          <span className="material-symbols-outlined">menu_book</span>
+        </button>
       </div>
 
       {/* Student Summary Card */}
-      <div className="px-4 py-2">
+      <div className="px-4 py-6">
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#4ba3f5] p-6 text-white shadow-lg shadow-blue-500/20">
           <div className="relative z-10">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h3 className="text-xl font-bold">Rahul Sharma</h3>
+                <h3 className="text-xl font-bold">Priya Sharma</h3>
                 <p className="text-blue-100 text-sm">Roll No: CS-2023-45</p>
               </div>
               <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
@@ -46,7 +51,7 @@ const Results: React.FC = () => {
         {['All Semesters', 'Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'].map((tab, idx) => (
           <button 
             key={tab}
-            className={`px-5 py-2 rounded-full whitespace-nowrap text-sm font-medium transition-all ${idx === 0 ? 'bg-primary text-white shadow-md' : 'bg-slate-100 dark:bg-surface-dark text-slate-600 dark:text-slate-400'}`}
+            className={`px-5 py-2 rounded-full whitespace-nowrap text-xs font-bold transition-all ${idx === 0 ? 'bg-primary text-white shadow-md' : 'bg-slate-100 dark:bg-surface-dark text-slate-500 dark:text-slate-400'}`}
           >
             {tab}
           </button>
@@ -63,6 +68,13 @@ const Results: React.FC = () => {
         <SemesterResult semester="III" date="Dec 2022" sgpa={8.5} />
         <SemesterResult semester="II" date="May 2022" sgpa={8.8} />
       </div>
+
+      <div className="p-4">
+        <button onClick={() => navigate('/syllabus')} className="w-full py-4 bg-slate-100 dark:bg-surface-dark border-2 border-dashed dark:border-slate-800 rounded-2xl flex items-center justify-center gap-2 text-slate-500 text-sm font-bold active:scale-[0.98] transition-all">
+            <span className="material-symbols-outlined">menu_book</span>
+            View Semester IV Syllabus
+        </button>
+      </div>
     </div>
   );
 };
@@ -76,11 +88,11 @@ const SemesterResult: React.FC<{ semester: string; date: string; sgpa: number; s
             <span className="material-symbols-outlined text-[20px] font-bold">check_circle</span>
           </div>
           <div>
-            <h4 className="font-bold text-slate-900 dark:text-white">Semester {semester}</h4>
-            <p className="text-xs text-slate-500 font-medium">{date} • SGPA: <span className="font-bold text-slate-900 dark:text-white">{sgpa}</span></p>
+            <h4 className="font-bold text-slate-900 dark:text-white text-sm">Semester {semester}</h4>
+            <p className="text-[10px] text-slate-500 font-medium">{date} • SGPA: <span className="font-bold text-slate-900 dark:text-white">{sgpa}</span></p>
           </div>
         </div>
-        <span className="material-symbols-outlined text-slate-400 transition-transform group-open:rotate-180">expand_more</span>
+        <span className="material-symbols-outlined text-slate-300 transition-transform group-open:rotate-180">expand_more</span>
       </summary>
       {subjects && (
         <div className="px-4 pb-4 flex flex-col gap-3">
@@ -88,13 +100,13 @@ const SemesterResult: React.FC<{ semester: string; date: string; sgpa: number; s
           {subjects.map(s => (
             <div key={s.code} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
               <div>
-                <p className="text-sm font-bold text-slate-900 dark:text-white">{s.name}</p>
-                <p className="text-[10px] text-slate-400">{s.code}</p>
+                <p className="text-xs font-bold text-slate-900 dark:text-white">{s.name}</p>
+                <p className="text-[9px] text-slate-400 uppercase tracking-widest">{s.code}</p>
               </div>
-              <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold ${s.grade === 'O' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>{s.grade}</span>
+              <span className={`px-2 py-0.5 rounded text-[10px] font-black ${s.grade === 'O' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>{s.grade}</span>
             </div>
           ))}
-          <button className="mt-2 w-full py-3 bg-primary/10 text-primary rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+          <button className="mt-2 w-full py-3 bg-primary/10 text-primary rounded-xl text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-2">
             <span className="material-symbols-outlined text-lg">download</span>
             Download Marksheet
           </button>

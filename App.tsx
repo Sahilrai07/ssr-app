@@ -9,6 +9,8 @@ import Registration from './views/auth/Registration';
 import Profile from './views/Profile';
 import IDCard from './views/IDCard';
 import Results from './views/academics/Results';
+import Syllabus from './views/academics/Syllabus';
+import Assignments from './views/academics/Assignments';
 import ExamForms from './views/academics/ExamForms';
 import Fees from './views/finance/Fees';
 import PaymentPage from './views/finance/PaymentPage';
@@ -19,6 +21,8 @@ import NotificationPrefs from './views/NotificationPrefs';
 import Onboarding from './views/Onboarding';
 import BusTracking from './views/transport/BusTracking';
 import Notices from './views/notices/Notices';
+import Library from './views/library/Library';
+import Placement from './views/career/Placement';
 
 const AppWrapper: React.FC = () => {
   const [theme, setTheme] = useState<AppTheme>(AppTheme.LIGHT);
@@ -46,6 +50,8 @@ const AppWrapper: React.FC = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/id-card" element={<IDCard />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/syllabus" element={<Syllabus />} />
+          <Route path="/assignments" element={<Assignments />} />
           <Route path="/exam-forms" element={<ExamForms />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/fees" element={<Fees />} />
@@ -55,6 +61,8 @@ const AppWrapper: React.FC = () => {
           <Route path="/notification-prefs" element={<NotificationPrefs />} />
           <Route path="/bus-tracking" element={<BusTracking />} />
           <Route path="/notices" element={<Notices />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/placement" element={<Placement />} />
         </Routes>
 
         {showNavbar && (

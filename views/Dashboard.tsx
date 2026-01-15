@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
 
       {/* Stats Section */}
       <section className="grid grid-cols-2 gap-4">
-        <div className="bg-white dark:bg-surface-dark rounded-2xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col justify-between h-32">
+        <div onClick={() => navigate('/results')} className="bg-white cursor-pointer dark:bg-surface-dark rounded-2xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col justify-between h-32">
           <div className="flex items-center justify-between">
             <span className="text-slate-500 dark:text-slate-400 text-sm font-medium">CGPA</span>
             <span className="material-symbols-outlined text-green-500 text-[20px]">trending_up</span>
@@ -65,17 +65,39 @@ const Dashboard: React.FC = () => {
         </div>
       </section>
 
-      {/* Quick Access */}
+      {/* Main Feature Grid */}
       <section>
-        <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 px-1">Quick Access</h3>
+        <div className="flex items-center justify-between mb-4 px-1">
+          <h3 className="text-base font-bold text-slate-900 dark:text-white">Quick Access</h3>
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Swipe for more</span>
+        </div>
         <div className="grid grid-cols-3 gap-3">
-          <QuickAction icon="school" label="Results" color="blue" onClick={() => navigate('/results')} />
-          <QuickAction icon="description" label="Exam Forms" color="indigo" onClick={() => navigate('/exam-forms')} />
-          <QuickAction icon="payments" label="Fee Payment" color="emerald" onClick={() => navigate('/fees')} />
-          <QuickAction icon="directions_bus" label="Bus Tracking" color="orange" onClick={() => navigate('/bus-tracking')} />
-          <QuickAction icon="campaign" label="Notices" color="pink" onClick={() => navigate('/notices')} />
+          <QuickAction icon="menu_book" label="Syllabus" color="blue" onClick={() => navigate('/syllabus')} />
+          <QuickAction icon="assignment_turned_in" label="Assignments" color="indigo" onClick={() => navigate('/assignments')} />
+          <QuickAction icon="local_library" label="Library" color="emerald" onClick={() => navigate('/library')} />
+          
+          <QuickAction icon="description" label="Exam Forms" color="orange" onClick={() => navigate('/exam-forms')} />
+          <QuickAction icon="payments" label="Fees" color="pink" onClick={() => navigate('/fees')} />
+          <QuickAction icon="work" label="Placement" color="cyan" onClick={() => navigate('/placement')} />
+          
+          <QuickAction icon="directions_bus" label="Bus" color="amber" onClick={() => navigate('/bus-tracking')} />
+          <QuickAction icon="campaign" label="Notices" color="rose" onClick={() => navigate('/notices')} />
           <QuickAction icon="headset_mic" label="Support" color="slate" onClick={() => navigate('/support')} />
         </div>
+      </section>
+
+      {/* Featured Banner */}
+      <section className="bg-slate-900 dark:bg-surface-dark rounded-3xl p-5 text-white flex items-center justify-between relative overflow-hidden shadow-xl">
+        <div className="relative z-10">
+          <span className="px-2 py-0.5 bg-primary rounded-md text-[8px] font-black uppercase tracking-widest mb-2 inline-block">New Update</span>
+          <h4 className="text-lg font-bold leading-tight mb-1">Placement Drive 2024</h4>
+          <p className="text-slate-400 text-xs">Registrations now open for Tech Mahindra.</p>
+          <button onClick={() => navigate('/placement')} className="mt-4 px-4 py-2 bg-white text-slate-900 text-[10px] font-bold rounded-lg uppercase tracking-wider">Apply Now</button>
+        </div>
+        <div className="relative z-10 size-20 opacity-20 rotate-12">
+            <span className="material-symbols-outlined text-8xl">rocket_launch</span>
+        </div>
+        <div className="absolute top-0 right-0 size-32 bg-primary/20 blur-3xl -mr-10 -mt-10"></div>
       </section>
     </div>
   );
@@ -83,11 +105,14 @@ const Dashboard: React.FC = () => {
 
 const QuickAction: React.FC<{ icon: string; label: string; color: string; onClick: () => void }> = ({ icon, label, color, onClick }) => {
   const colors: Record<string, string> = {
-    blue: 'bg-blue-50 text-primary dark:bg-blue-900/30',
+    blue: 'bg-blue-50 text-blue-600 dark:bg-blue-900/30',
     indigo: 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30',
     emerald: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30',
     orange: 'bg-orange-50 text-orange-600 dark:bg-orange-900/30',
     pink: 'bg-pink-50 text-pink-600 dark:bg-pink-900/30',
+    cyan: 'bg-cyan-50 text-cyan-600 dark:bg-cyan-900/30',
+    amber: 'bg-amber-50 text-amber-600 dark:bg-amber-900/30',
+    rose: 'bg-rose-50 text-rose-600 dark:bg-rose-900/30',
     slate: 'bg-slate-100 text-slate-600 dark:bg-slate-700/50'
   };
 
@@ -97,9 +122,9 @@ const QuickAction: React.FC<{ icon: string; label: string; color: string; onClic
       className="flex flex-col items-center justify-center gap-2 p-3 bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all active:scale-95"
     >
       <div className={`size-12 rounded-full flex items-center justify-center ${colors[color]}`}>
-        <span className="material-symbols-outlined">{icon}</span>
+        <span className="material-symbols-outlined text-[22px]">{icon}</span>
       </div>
-      <span className="text-[11px] font-medium text-slate-700 dark:text-slate-300 text-center leading-tight">{label}</span>
+      <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 text-center leading-tight">{label}</span>
     </button>
   );
 };

@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
       <section>
         <div className="flex items-center justify-between mb-4 px-1">
           <h3 className="text-base font-bold text-slate-900 dark:text-white">Quick Access</h3>
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Swipe for more</span>
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Select action</span>
         </div>
         <div className="grid grid-cols-3 gap-3">
           <QuickAction icon="menu_book" label="Syllabus" color="blue" onClick={() => navigate('/syllabus')} />
@@ -78,7 +78,7 @@ const Dashboard: React.FC = () => {
           
           <QuickAction icon="description" label="Exam Forms" color="orange" onClick={() => navigate('/exam-forms')} />
           <QuickAction icon="payments" label="Fees" color="pink" onClick={() => navigate('/fees')} />
-          <QuickAction icon="work" label="Placement" color="cyan" onClick={() => navigate('/placement')} />
+          <QuickAction icon="quick_reference_all" label="Documents" color="cyan" onClick={() => navigate('/request-document')} />
           
           <QuickAction icon="directions_bus" label="Bus" color="amber" onClick={() => navigate('/bus-tracking')} />
           <QuickAction icon="campaign" label="Notices" color="rose" onClick={() => navigate('/notices')} />
@@ -89,13 +89,13 @@ const Dashboard: React.FC = () => {
       {/* Featured Banner */}
       <section className="bg-slate-900 dark:bg-surface-dark rounded-3xl p-5 text-white flex items-center justify-between relative overflow-hidden shadow-xl">
         <div className="relative z-10">
-          <span className="px-2 py-0.5 bg-primary rounded-md text-[8px] font-black uppercase tracking-widest mb-2 inline-block">New Update</span>
-          <h4 className="text-lg font-bold leading-tight mb-1">Placement Drive 2024</h4>
-          <p className="text-slate-400 text-xs">Registrations now open for Tech Mahindra.</p>
-          <button onClick={() => navigate('/placement')} className="mt-4 px-4 py-2 bg-white text-slate-900 text-[10px] font-bold rounded-lg uppercase tracking-wider">Apply Now</button>
+          <span className="px-2 py-0.5 bg-primary rounded-md text-[8px] font-black uppercase tracking-widest mb-2 inline-block">Notice</span>
+          <h4 className="text-lg font-bold leading-tight mb-1">Semester Results</h4>
+          <p className="text-slate-400 text-xs">Sem III results are out now. Check yours.</p>
+          <button onClick={() => navigate('/results')} className="mt-4 px-4 py-2 bg-white text-slate-900 text-[10px] font-bold rounded-lg uppercase tracking-wider">Check Results</button>
         </div>
         <div className="relative z-10 size-20 opacity-20 rotate-12">
-            <span className="material-symbols-outlined text-8xl">rocket_launch</span>
+            <span className="material-symbols-outlined text-8xl">school</span>
         </div>
         <div className="absolute top-0 right-0 size-32 bg-primary/20 blur-3xl -mr-10 -mt-10"></div>
       </section>

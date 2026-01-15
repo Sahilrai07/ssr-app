@@ -22,7 +22,8 @@ import Onboarding from './views/Onboarding';
 import BusTracking from './views/transport/BusTracking';
 import Notices from './views/notices/Notices';
 import Library from './views/library/Library';
-import Placement from './views/career/Placement';
+import RequestDocument from './views/documents/RequestDocument';
+import DriverDashboard from './views/driver/DriverDashboard';
 
 const AppWrapper: React.FC = () => {
   const [theme, setTheme] = useState<AppTheme>(AppTheme.LIGHT);
@@ -35,7 +36,7 @@ const AppWrapper: React.FC = () => {
     document.documentElement.classList.toggle('dark', isDark);
   }, []);
 
-  const showNavbar = !['/login', '/register', '/onboarding', '/', '/forgot-password', '/id-card', '/payment'].includes(location.pathname);
+  const showNavbar = !['/login', '/register', '/onboarding', '/', '/forgot-password', '/id-card', '/payment', '/driver-dashboard'].includes(location.pathname);
 
   return (
     <div className={`min-h-screen bg-background-light dark:bg-background-dark flex flex-col items-center selection:bg-primary/20`}>
@@ -62,7 +63,8 @@ const AppWrapper: React.FC = () => {
           <Route path="/bus-tracking" element={<BusTracking />} />
           <Route path="/notices" element={<Notices />} />
           <Route path="/library" element={<Library />} />
-          <Route path="/placement" element={<Placement />} />
+          <Route path="/request-document" element={<RequestDocument />} />
+          <Route path="/driver-dashboard" element={<DriverDashboard />} />
         </Routes>
 
         {showNavbar && (
